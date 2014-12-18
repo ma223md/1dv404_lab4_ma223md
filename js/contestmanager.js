@@ -14,7 +14,7 @@ function ContestManager(calendar){
 
 }
 
-ContestManager.prototype.contestmanager = function(date){
+ContestManager.prototype.contestmanager = function(){
     //create new calendar
     var calendar = new Calendar;
 }
