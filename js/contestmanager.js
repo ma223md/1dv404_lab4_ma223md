@@ -14,7 +14,7 @@ function ContestManager(calendar){
 
 }
 
-ContestManager.prototype.contestmanager = function(){
+ContestManager.prototype.contestManager = function(){
     //create new calendar
     var calendar = new Calendar;
 }
@@ -26,6 +26,7 @@ ContestManager.prototype.createContest = function(date){
         //add to list
         ContestManager.contestArray.push(contest);
         //add to calendar
+        this.calendar.setDate(date);
     }
     
     else {
