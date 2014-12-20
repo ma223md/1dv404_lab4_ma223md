@@ -3,19 +3,31 @@
 // datumvariabler
 var calendar = new Calendar();
 var d = new Date("December 20, 2014"),
-otherd = new Date("December 21, 2014");
+otherd = new Date("December 21, 2014"),
+anotherd = new Date("December 21, 2013");
 
 // ledigt datum och upptaget datum, test
-test ("Date free", function(){
+test ("Is date free", function(){
     ok(calendar.isDateFree(otherd), 'Date is free');
-    ok(!calendar.isDateFree(d), 'Date is not free');
+    ok(!calendar.isDateFree(otherd), 'Date is not free');
+    ok(!calendar.isDateFree(anotherd), 'Invalid date');
 }) 
 
-// felaktigt datum
+// är datumet legitimt
+test ("Is date valid", function(){
+    ok(calendar.isDateValid(d), 'Date is valid');
+    ok(calendar.isDateValid(anotherd), 'Date is invalid');
+})
 
 // lägg till datum 
 test ("Add date", function(){
-    ok(calendar.setDate(otherd), "Date is set")
+    ok(calendar.setDate(otherd), "Date is set");
+})
+
+// ta bort datum
+test ("Remove date", function(){
+    ok(calendar.freeDate(d), "Date is removed");
+    ok(calendar.freeDate(anotherd), "Date doesn't exist");
 })
 
 // variabler för infotext
