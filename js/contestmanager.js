@@ -10,8 +10,6 @@ function ContestManager(calendar){
     this.setCalendar = function(_calendar){
         calendar = _calendar;
     };
-    
-
 }
 
 ContestManager.prototype.contestManager = function(){
