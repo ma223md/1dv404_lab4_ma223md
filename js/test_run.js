@@ -1,35 +1,34 @@
 "use strict";
 
-function isEven(val) {
-    return val % 2 === 0;
-}
-
-
-
+// datumvariabler
+var calendar = new Calendar();
 var d = new Date("December 20, 2014"),
-otherd = new Date("December 21, 2014"),
-dateArray = [];
+otherd = new Date("December 21, 2014");
 
-dateArray.push(d);
-
-function isDateFree(date) {
-    // check date array if date is free
-    for (var i = 0; i < dateArray.length; i++) {
-        if (dateArray[i] === date) {
-            return false;
-        }
-    }
-}
-    
-test (isDateFree(), function(){
-    ok(isDateFree(otherd), 'Date is free');
-    ok(!isDateFree(d), 'Date is not free');
+// ledigt datum och upptaget datum, test
+test ("Date free", function(){
+    ok(calendar.isDateFree(otherd), 'Date is free');
+    ok(!calendar.isDateFree(d), 'Date is not free');
 }) 
 
-test (isEven(), function() {
-    ok(isEven(0), 'Zero is an even number');
-    ok(isEven(2), 'So is two');
-    ok(isEven(-4), 'So is negative four');
-    ok(!isEven(1), 'One is not an even number');
-    ok(!isEven(-7), 'Neither is negative seven');
+// felaktigt datum
+
+// lägg till datum 
+test ("Add date", function(){
+    ok(calendar.setDate(otherd), "Date is set")
 })
+
+// variabler för infotext
+var info = "Info about contest",
+text;
+
+// tilldela infotext, funktion
+function setText(_text) {
+    text = _text;
+    return text;
+}
+
+// hämta infotext, test
+test ("Set info text", function(){
+    equal(setText(info), "Info about contest", "Information assigned correctly" )
+});
